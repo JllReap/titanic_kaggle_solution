@@ -73,9 +73,6 @@ class DNN(nn.Module):
     def fit(self, X_train: pd.DataFrame, Y_train: pd.DataFrame, X_val: pd.DataFrame, Y_val: pd.DataFrame):
         """Training."""
 
-        # Remove fold splitters
-        X_train, X_val = X_train.drop(['fold'], axis =1), X_val.drop(['fold'], axis =1)
-
         # Distinct categorical and numerical columns.
         self.cat_column_names = X_train.select_dtypes(include=['object', 'category']).columns.tolist()
         self.num_columns = X_train.select_dtypes(exclude=['object', 'category']).columns.tolist()
@@ -204,7 +201,6 @@ class DNN(nn.Module):
         """Inference."""
 
         self.eval()
-
         with torch.no_grad():
             X_num = X[self.num_columns]
             X_num_scaled = torch.tensor(self.scaler.transform(X_num)).float().to(self.device)

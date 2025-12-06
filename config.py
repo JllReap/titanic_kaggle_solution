@@ -3,9 +3,9 @@ import os
 
 # --- Run mode ---
 
-IS_TRAIN = True
+IS_TRAIN = False
 LOCAL = True
-IS_RERUN = False
+IS_RERUN = True
 
 # --- Config ---
 
@@ -37,6 +37,7 @@ class Config:
         "catboost": path_to_save_solver_checkpoint,
         "lgbm": path_to_save_solver_checkpoint,
         "xgboost": path_to_save_solver_checkpoint,
+        'DNN': path_to_save_solver_checkpoint
     }
 
     path_to_save_dataset = 'checkpoints/dataset.csv'
@@ -47,7 +48,7 @@ class Config:
     n_splits = 5
 
     use_oof = False
-    use_dnn_embeddings = False
+    use_dnn_embeddings = True
     use_baseline_scores = False
     show_shap = False
     mask_filter = False
@@ -122,9 +123,7 @@ class Config:
 
     to_train = {
         "log_reg": False,
-        'lasso': False,
         'ridge': False,
-        'elastic': False,
         "knn": False,
         'tree': False,
         'random_forest': False,
@@ -136,14 +135,12 @@ class Config:
 
     to_inference = {
         "log_reg": True,
-        'lasso': False,
-        'ridge': False,
-        'elastic': False,
+        'ridge': True,
         "knn": False,
         'tree': False,
-        'random_forest': False,
+        'random_forest': True,
         "catboost": False,
-        'lgbm': False,
+        'lgbm': True,
         'xgboost': False,
-        "DNN": False
+        "DNN": True
     }
