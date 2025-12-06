@@ -25,14 +25,13 @@ It includes automated preprocessing, feature engineering, cross-validated model 
   
 ***Project Structure***  
 ```  
-project/  
+titanic_kaggle_solution/  
 │  
 ├── solver.py        # Model training and inference manager  
 ├── dataset.py       # Preprocessing, feature engineering, CV folds  
 ├── dnn.py           # Custom deep neural network  
 ├── config.py        # Configuration for models and paths  
 ├── main.py          # Train / predict entry point  
-└── checkpoints/     # Saved model weights and pipelines  
 ```  
   
 ***TODO***  
